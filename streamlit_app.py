@@ -17,10 +17,15 @@ def numfunc(someText):
 
 def nsum(tsum):
     tsum = str(tsum)
-    nsum = 0
+    nrsum = 0
     for i in tsum:
-        nsum += int(i)
-    return nsum
+        nrsum += int(i)
+    if 0 <= nrsum <= 9:
+        return nrsum
+    else:
+        st.write("The sum of numbers in sum is ",
+                 nrsum, " which is greater than 9.")
+        return nsum(nrsum)
 
 # app code
 
@@ -31,7 +36,8 @@ st.write(
 )
 
 
-title = st.text_input("Write the name here:", "Write here")
+title = st.text_input("Write the name here", "Write here")
 st.write(f"The sum of alphabets in [{title}] is", numfunc(title))
 
-st.write(f"The reduced sum or the sum of numbers in sum is", nsum(numfunc(title)))
+st.write(f"The reduced sum or the sum as per numerology is ",
+         nsum(numfunc(title)))
